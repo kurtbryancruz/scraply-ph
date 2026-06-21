@@ -1,0 +1,126 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+header {
+  background: #2b6cb0;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+header h1 { font-size: 2rem; letter-spacing: -0.5px; }
+header h1 span { color: #90cdf4; }
+header p { margin-top: 0.25rem; opacity: 0.85; font-size: 0.95rem; }
+
+main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+.search-bar input,
+.search-bar select {
+  flex: 1 1 160px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.search-bar button {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#search-btn  { background: #2b6cb0; color: #fff; }
+#search-btn:hover { background: #2c5282; }
+#export-btn  { background: #276749; color: #fff; }
+#export-btn:hover:not(:disabled) { background: #22543d; }
+#export-btn:disabled { background: #a0aec0; cursor: not-allowed; }
+
+#status {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+  min-height: 1.2rem;
+}
+
+#jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+#jobs-table th {
+  background: #2b6cb0;
+  color: #fff;
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#jobs-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  vertical-align: top;
+}
+
+#jobs-table tr:last-child td { border-bottom: none; }
+#jobs-table tr:hover td { background: #ebf8ff; }
+
+#jobs-table a { color: #2b6cb0; text-decoration: none; }
+#jobs-table a:hover { text-decoration: underline; }
+
+#pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+#pagination button {
+  padding: 0.45rem 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.4rem;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#pagination button:hover:not(:disabled) { background: #ebf8ff; }
+#pagination button:disabled { opacity: 0.45; cursor: not-allowed; }
+#page-label { font-size: 0.9rem; color: #4a5568; }
+
+#no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+.hidden { display: none; }

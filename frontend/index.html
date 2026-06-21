@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scraply PH — Job Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Scraply <span>PH</span></h1>
+    <p>Aggregate Philippine job listings from multiple sources</p>
+  </header>
+
+  <main>
+    <section class="search-bar">
+      <input id="keyword" type="text" placeholder="Job title or keyword" />
+      <input id="location" type="text" placeholder="Location (optional)" />
+      <select id="source">
+        <option value="jobstreet">JobStreet</option>
+        <option value="indeed">Indeed</option>
+        <option value="kalibrr">Kalibrr</option>
+      </select>
+      <button id="search-btn">Search</button>
+      <button id="export-btn" disabled>Export CSV</button>
+    </section>
+
+    <section id="status"></section>
+
+    <section id="results">
+      <table id="jobs-table" class="hidden">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Source</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody id="jobs-body"></tbody>
+      </table>
+      <p id="no-results" class="hidden">No jobs found. Try different keywords.</p>
+    </section>
+
+    <div id="pagination" class="hidden">
+      <button id="prev-btn" disabled>Previous</button>
+      <span id="page-label">Page 1</span>
+      <button id="next-btn">Next</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
