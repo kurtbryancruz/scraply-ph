@@ -3,9 +3,8 @@ from fastapi.responses import StreamingResponse
 from typing import Optional
 import io
 
-from scraply.fetch import fetch_html
 from scraply.registry import ParserRegistry
-from scraply.exporter import to_json, to_csv
+from scraply.exporter import to_csv
 import scraply.parsers  # noqa: F401 — triggers parser registration
 
 router = APIRouter()
@@ -18,14 +17,10 @@ def _scrape(source: str, keyword: str, location: str, page: int) -> list:
         raise HTTPException(status_code=400, detail=str(exc))
 
     parser = parser_cls()
-    url = parser.build_url(keyword, location, page)
-
     try:
-        html = fetch_html(url)
+        return parser.scrape(keyword, location, page)
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"Failed to fetch '{url}': {exc}")
-
-    return parser.parse(html)
+        raise HTTPException(status_code=502, detail=str(exc))
 
 
 @router.get("/scrape")
